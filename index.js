@@ -47,7 +47,8 @@ app.post('/event', function(request, response) {
 	console.log(mom.get('month'));  // 0 to 11
 	console.log(mom.get('date'));
 	console.log(mom.get('hour'));
-	console.log(mom.get('minute')):
+	console.log(mom.get('minute'));
+
 	console.log("\n\n-------------------------------------" + mom.format("LLLL") + "-------------------------------------");
 
     response.send(output);
