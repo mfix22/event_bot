@@ -12,14 +12,11 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   var result = ''
-  var times = process.env.TIMES || 5
-  for (i=0; i < times; i++)
-    result += cool();
   response.send(result);
 });
 
-app.get('/event', function(request, response) {
-  response.send("Your event has been created");
+app.post('/event', function(request, response) {
+  response.send(request.text);
 });
 
 app.get('/db', function (request, response) {
