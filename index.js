@@ -19,7 +19,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/event', function(request, response) {
-  response.send("Test");
+  response.send("Your event has been created");
 });
 
 app.get('/db', function (request, response) {
