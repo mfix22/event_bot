@@ -28,6 +28,7 @@ app.post('/event', function(request, response) {
 	var info = text.trim().split(/\s+/);
 	var output = "";
 	var date_info = "";
+	var insert_link = ""
 
 	for (var i = 0; i < info.length; i++){
 		if (moment(info[i]).isValid()){
