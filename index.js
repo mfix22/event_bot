@@ -85,15 +85,17 @@ app.post('/event', function(request, response) {
 
 	//create Google Calendar event
 	// Load client secrets from a local file.
-	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-	  if (err) {
-	    console.log('Error loading client secret file: ' + err);
-	    return;
-	  }
-	  // Authorize a client with the loaded credentials, then call the
-	  // Google Calendar API.
-	  authorize(JSON.parse(content), create_calendar_event);
-	});
+	create_calendar_event();
+
+	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	//   if (err) {
+	//     console.log('Error loading client secret file: ' + err);
+	//     return;
+	//   }
+	//   // Authorize a client with the loaded credentials, then call the
+	//   // Google Calendar API.
+	//   authorize(JSON.parse(content), create_calendar_event);
+	// });
 
 	/*******************
 	 * create campaign *
@@ -176,7 +178,7 @@ function send_email(campaign_id){
 	});
 }
 
-function create_calendar_event(auth){
+function create_calendar_event(){
 	var event = {
 	  'summary': info[0].trim(),
 	  'location': info[1].trim(),
