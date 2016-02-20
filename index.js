@@ -100,6 +100,8 @@ app.post('/event', function(request, response) {
 	  	campaign_id = body.id;
 	});
 
+	//TODO fix this HACK
+	while (campaign_id == null){}
 	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++id: " + campaign_id);
 	//edit campaign content
 	var options = {method: 'PUT',
