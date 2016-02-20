@@ -3,7 +3,7 @@ var app = express();
 // var pg = require('pg');
 var bodyParser = require('body-parser');
 var moment = require('moment');
-moment().format();
+moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -24,22 +24,29 @@ app.post('/event', function(request, response) {
 	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
 
 	var text = request.body.text;
-	var mom = moment(text);
-	console.log("-------------------------------------" + mom + "-------------------------------------")
 
 	var info = text.trim().split(/\s+/);
-	var what = "nothing";
-	var where = "nowhere";
-	var when = "never";
-	var link = "nowhere.com";
-	if (info.length == 4){
-		what = info[0];
-		where = info[1];
-		when  = info[2];
-		link = info[3];
+	var output = "";
+	var date_info = [];
+	if (info.length >= 3){
+		output += ("What: *" + info[0] + "*\n");	//what
+		output += ("Where: *" + info[1] + "*\n")	//where
+		output += ("When: *" + info[2] + "*")		//date
+
+		date_info.push(info[2]);
+	}
+	if (info.length >= 4){
+		output += (" *" + info[3] + "*")			//time
+		date_info.push(info[3]);
+	}
+	if (info.length >= 5){
+		output += ("<http://" + info[4] + "|LINK>");
 	}
 
-    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "* <http://" + link + "|LINK>  :transcend:");
+	var mom = moment(date_info);
+	console.log("\n\n-------------------------------------" + mom + "-------------------------------------")
+
+    response.send(output);
 });
 
 
