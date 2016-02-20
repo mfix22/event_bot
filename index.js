@@ -97,7 +97,6 @@ app.post('/event', function(request, response) {
 
 	rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
-	  	// console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
 	  	campaign_id = body.id;
 
 	  	/*************************
@@ -119,10 +118,11 @@ app.post('/event', function(request, response) {
 		});
 	});
 
-	if (info[info.length -1].toLowerCase() == "send"){
+	if (info[info.length - 1].toLowerCase()localeCompare("send")){
+		console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++HERE: ");
 		//send campaign
 		var options = { method: 'POST',
-						  url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id+'/actions/send',
+						  url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id.trim()+'/actions/send',
 						  headers: 
 						   { 'postman-token': '6732ecc8-4186-6981-7f10-f5e6a1641a35',
 						     'cache-control': 'no-cache',
@@ -131,7 +131,6 @@ app.post('/event', function(request, response) {
 
 		rq(options, function (error, response, body) {
 			if (error) throw new Error(error);
-
 		  	//console.log(body);
 		});
 
