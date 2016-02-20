@@ -197,6 +197,8 @@ function create_calendar_event(){
 	var redirectUrl = "http://localhost";
 	var auth = new googleAuth();
 	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+	var calendar = calendar = google.calendar('v3');
+	
 	calendar.events.insert({
 	  auth: oauth2Client,
 	  calendarId: 'primary',
