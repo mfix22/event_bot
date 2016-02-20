@@ -192,7 +192,7 @@ function create_calendar_event(auth){
 
 	var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
 	var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
-	var redirectUrl = "urn:ietf:wg:oauth:2.0:457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv";
+	var redirectUrl = "http://localhost";
 	var auth = new googleAuth();
 	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 	calendar.events.insert({
