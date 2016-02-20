@@ -1,10 +1,18 @@
 var express = require('express');
 var app = express();
 var pg = require('pg');
+var bodyParser = require('body-parser')
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -16,7 +24,8 @@ app.get('/', function(request, response) {
 });
 
 app.post('/event', function(request, response) {
-  response.send("Test " + request.body.text);
+	console.log(request);
+  response.send(request.body);
 });
 
 app.get('/db', function (request, response) {
