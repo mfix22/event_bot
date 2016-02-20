@@ -25,13 +25,15 @@ app.post('/event', function(request, response) {
 	var what = "nothing";
 	var where = "nowhere";
 	var when = "never";
-	if (info.length == 3){
+	var link = "nowhere.com";
+	if (info.length == 4){
 		what = info[0];
 		where = info[1];
 		when  = info[2];
+		link = info[3];
 	}
 
-    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "*");
+    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "* <" + link + "|LINK>  :transcend:");
 });
 
 
