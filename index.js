@@ -120,6 +120,7 @@ app.post('/event', function(request, response) {
 
 	if (info[info.length - 1].toLowerCase().localeCompare("send")){
 		console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++HERE: ");
+		console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ID: " = campaign_id);
 		//send campaign
 		var options = { method: 'POST',
 						  url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id.trim()+'/actions/send',
