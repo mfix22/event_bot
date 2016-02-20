@@ -196,7 +196,7 @@ function send_email(campaign_id){
 }
 
 function create_calendar_event(auth){
-	var event = {
+	var event_1 = {
 	  'summary': "TEST",//TODO info[0].trim(),
 	  'location': "TEST",//TODO info[1].trim(),
 	  'start': {
@@ -213,13 +213,13 @@ function create_calendar_event(auth){
 	calendar.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
-	  resource: event,
-	}, function(err, event) {
+	  resource: event_1,
+	}, function(err, event_1) {
 	  if (err) {
 	    console.log('There was an error contacting the Calendar service: ' + err);
 	    return;
 	  }
-	  console.log('Event created: %s', event.htmlLink);
+	  console.log('Event created: %s', event_1.htmlLink);
 	});
 }
 
