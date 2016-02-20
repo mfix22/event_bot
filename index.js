@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 
 app.post('/event', function(request, response) {
 	var text = request.param('text');
-	response.send(test);
+	response.send(text);
 });
 
 app.get('/db', function (request, response) {
