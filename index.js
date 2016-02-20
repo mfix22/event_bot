@@ -4,6 +4,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var moment = require('moment');
 var rq = require("request");
+var google = require('googleapis');
+var googleAuth = require('google-auth-library');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -169,6 +171,9 @@ function create_calendar_event(info, mom){
 	  },
 	};
 
+	var calendar = google.calendar('v3');
+	var auth = new googleAuth();
+	
 	calendar.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
