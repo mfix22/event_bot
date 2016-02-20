@@ -31,7 +31,7 @@ app.post('/event', function(request, response) {
 		when  = info[2];
 	}
 
-    response.send("What: " + what + " Where: " + where + " When: " + when);
+    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "*");
 });
 
 
