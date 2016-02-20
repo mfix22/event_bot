@@ -70,10 +70,14 @@ app.post('/event', function(request, response) {
 																				    nextWeek: 'Next dddd M/D h:mma',
 																				    sameElse: 'dddd M/D h:mma'
 																				}) + "-------------------------------------");
+	console.log("\n\n--------------------------------------ISO: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
 
+
+	create_calendar_event(info, mom);
 	/*******************
 	 * create campaign *
 	 *******************/
+	 /*
 	var options = { method: "POST",
 					  url: "https://us10.api.mailchimp.com/3.0/campaigns/",
 					  headers: 
@@ -101,7 +105,7 @@ app.post('/event', function(request, response) {
 	  	//edit email
 		edit_email(campaign_id, info, mom, insert_button)
 	});
-
+	*/
     response.send(output);
 });
 
@@ -151,6 +155,34 @@ function send_email(campaign_id){
 	});
 }
 
+function create_calendar_event(info, mom){
+	var event = {
+	  'summary': info[0].trim(),
+	  'location': info[1].trim(),
+	  'start': {
+	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
+	  },
+	  'end': {
+	    'dateTime': mmom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
+	  },
+	};
+
+	calendar.events.insert({
+	  auth: auth,
+	  calendarId: 'primary',
+	  resource: event,
+	}, function(err, event) {
+	  if (err) {
+	    console.log('There was an error contacting the Calendar service: ' + err);
+	    return;
+	  }
+	  console.log('Event created: %s', event.htmlLink);
+	});
+}
+
+//start server
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
