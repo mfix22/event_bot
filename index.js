@@ -93,17 +93,17 @@ app.post('/event', function(request, response) {
 					   },
 					  json: true };
 
-	rq(options, function (error, response, body) {
-	  	if (error) throw new Error(error);
+	// rq(options, function (error, response, body) {
+	//   	if (error) throw new Error(error);
 
-	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
-	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
-	  	campaign_id = body.id;
-	});
+	//   	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
+	//   	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
+	//   	campaign_id = body.id;
+	// });
 
 	//edit campaign content
-	var options = { method: 'PUT',
-	  					url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id+'/content',
+	var options = {method: 'PUT',
+	  					url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+"d0a79887d2"+'/content',
 	  					headers: 
 	   					{ 'postman-token': 'dadd5305-ba57-7e3d-0847-35a6ee043e16',
 	     					'cache-control': 'no-cache',
