@@ -61,7 +61,7 @@ app.post('/event', function(request, response) {
 	}
 
 	// console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
-	var mom = moment(date_info); 
+	var mom = moment(date_info, 'dddd M/D h:mma'); 
 
 	// console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
 	// console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
