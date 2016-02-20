@@ -209,6 +209,7 @@ function create_calendar_event(auth){
 	  },
 	};
 
+	var calendar = google.calendar('v3');
 	calendar.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
