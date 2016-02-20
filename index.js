@@ -96,7 +96,7 @@ app.post('/event', function(request, response) {
 	rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
 
-	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
+	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
 	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
 	  	campaign_id = body.id;
 	});
@@ -114,6 +114,8 @@ app.post('/event', function(request, response) {
 
 		rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
 	  	// console.log(body);
 	});
 
