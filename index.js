@@ -209,8 +209,8 @@ function create_calendar_event(auth){
 	  },
 	};
 
-	var calendar = google.calendar('v3');
-	calendar.events.insert({
+	var cal = google.calendar('v3');
+	cal.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
 	  resource: event_1,
