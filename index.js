@@ -43,7 +43,7 @@ app.post('/event', function(request, response) {
 	}
 
 	var mom = moment(date_info);
-	console.log("\n\n-------------------------------------" + mom.format("dddd, MMMM Do YYYY, h:mm:ss a") + "-------------------------------------");
+	console.log("\n\n-------------------------------------" + mom.format("LLLL") + "-------------------------------------");
 
     response.send(output);
 });
