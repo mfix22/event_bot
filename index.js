@@ -19,7 +19,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/event', function(request, response) {
-	console.log("+++++++++++++++++++++++++++++++++++++" + req.body + "+++++++++++++++++++++++++++++++++++++")
+	console.log("+++++++++++++++++++++++++++++++++++++" + request.body + "+++++++++++++++++++++++++++++++++++++")
     response.send("Complete");
 });
 
