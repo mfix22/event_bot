@@ -164,7 +164,7 @@ function create_calendar_event(info, mom){
 	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': mmom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	};
