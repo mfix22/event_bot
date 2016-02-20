@@ -190,14 +190,13 @@ function create_calendar_event(auth){
 	  },
 	};
 
-	// var credentials = JSON.parse(fs.readFile('client_secret.json', function processClientSecrets(err, content)));
-	// var clientSecret = credentials.installed.client_secret;
- //  	var clientId = credentials.installed.client_id;
- //  	var redirectUrl = credentials.installed.redirect_uris[0];
-	// var calendar = google.calendar('v3');
-	// var auth = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+	var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
+	var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
+	var redirectUrl = "urn:ietf:wg:oauth:2.0:457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv";
+	var auth = new googleAuth();
+	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 	calendar.events.insert({
-	  auth: auth,
+	  auth: oauth2Client,
 	  calendarId: 'primary',
 	  resource: event,
 	}, function(err, event) {
