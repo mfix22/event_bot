@@ -25,7 +25,7 @@ app.post('/event', function(request, response) {
 
 	var text = request.body.text;
 
-	var info = text.trim().split(/\s+/);
+	var info = text.trim().split(",");
 	var output = "";
 	var date_info = "";
 	var insert_button = "";
