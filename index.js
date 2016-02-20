@@ -63,15 +63,13 @@ app.post('/event', function(request, response) {
 	// console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
 	var mom = moment(date_info, 'dddd M/D h:mma'); 
 
-	// console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
-	// console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
-	// 																			    sameDay: '[Today] at M/D h:mma' ,
-	// 																			    nextDay: '[Tomorrow] dddd M/D h:mma',
-	// 																			    nextWeek: 'Next dddd M/D h:mma',
-	// 																			    sameElse: 'dddd M/D h:mma'
-	// 																			}) + "-------------------------------------");
-
-	// var rq = require("request");
+	console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
+	console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
+																				    sameDay: '[Today] at M/D h:mma' ,
+																				    nextDay: '[Tomorrow] dddd M/D h:mma',
+																				    nextWeek: 'Next dddd M/D h:mma',
+																				    sameElse: 'dddd M/D h:mma'
+																				}) + "-------------------------------------");
 
 	/*******************
 	 * create campaign *
@@ -136,7 +134,7 @@ function edit_email(campaign_id, info, mom, insert_button){
  * send campaign *
  *****************/
 function send_email(campaign_id){
-	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ID: " + campaign_id);
+	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SENT: " + campaign_id);
 	//send campaign
 	var options = { method: 'POST',
 					  url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id.trim()+'/actions/send',
