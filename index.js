@@ -33,7 +33,7 @@ app.post('/event', function(request, response) {
 		link = info[3];
 	}
 
-    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "* <" + link + "|LINK>  :transcend:");
+    response.send("What: *" + what + "* Where: *" + where + "* When: *" + when + "* <http://" + link + "|LINK>  :transcend:");
 });
 
 
