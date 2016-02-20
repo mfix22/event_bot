@@ -96,11 +96,11 @@ app.post('/event', function(request, response) {
 	rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
 
-	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
-	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
 	  	campaign_id = body.id;
 	});
 
+	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++id: " + campaign_id);
 	//edit campaign content
 	var options = {method: 'PUT',
 	  					url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id.trim()+'/content',
@@ -114,8 +114,6 @@ app.post('/event', function(request, response) {
 
 		rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
-	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
-	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
 	  	// console.log(body);
 	});
 
