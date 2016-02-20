@@ -119,7 +119,6 @@ app.post('/event', function(request, response) {
 			 * send campaign *
 			 *****************/
 		  	if (info[info.length - 1].toLowerCase().localeCompare("send")){
-				console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++HERE: ");
 				console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ID: " + campaign_id);
 				//send campaign
 				var options = { method: 'POST',
@@ -145,24 +144,6 @@ app.post('/event', function(request, response) {
     response.send(output);
 });
 
-
-app.post('/api/users', function(req, res) {
-    var user_id = req.body.id;
-
-    res.send(user_id);
-});
-
-// app.get('/db', function (request, response) {
-//   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-//     client.query('SELECT * FROM test_table', function(err, result) {
-//       done();
-//       if (err)
-//        { console.error(err); response.send("Error " + err); }
-//       else
-//        { response.render('pages/db', {results: result.rows} ); }
-//     });
-//   });
-// })
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
