@@ -72,7 +72,7 @@ app.post('/event', function(request, response) {
 	// 																			}) + "-------------------------------------");
 
 	// var rq = require("request");
-	
+
 	/*******************
 	 * create campaign *
 	 *******************/
@@ -101,7 +101,7 @@ app.post('/event', function(request, response) {
 	  	campaign_id = body.id;
 
 	  	//edit email
-		edit_email(campaign_id)
+		edit_email(campaign_id, info)
 	});
 
     response.send(output);
@@ -110,7 +110,7 @@ app.post('/event', function(request, response) {
 /*************************
  * edit campaign content *
  *************************/
-function edit_email(campaign_id){
+function edit_email(campaign_id, info){
 
 	var options = {method: 'PUT',
 	  					url: 'https://us10.api.mailchimp.com/3.0/campaigns/'+campaign_id.trim()+'/content',
