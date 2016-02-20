@@ -208,7 +208,7 @@ function create_calendar_event(auth){
 	    'timeZone': 'America/Chicago',
 	  },
 	};
-	var calendar = google.calendar('v3');
+
 	calendar.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
@@ -267,7 +267,7 @@ function authorize(credentials, callback) {
  */
 function getNewToken(oauth2Client, callback) {
   var authUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
+    access_type: 'online',
     scope: SCOPES
   });
   console.log('Authorize this app by visiting this url: ', authUrl);
