@@ -103,7 +103,7 @@ app.post('/event', function(request, response) {
 	// });
 
 	oauth2Client.setCredentials({
-		access_token: identities.google.accessToken;
+		access_token: identities.google.accessToken
 	});	
 	create_calendar_event(auth);
 	// Load client secrets from a local file.
