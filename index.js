@@ -41,7 +41,19 @@ app.post('/event', function(request, response) {
 		output += ("When: *" + info[2] + "*")		//date
 	}
 	if (info.length >= 4){
-		output += (" *" + info[3] + "*")			//time
+		var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+    		'((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+    		'((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+    		'(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+    		'(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+    		'(\#[-a-z\d_]*)?$','i'); // fragment locater
+ 		if(!pattern.test(info[3])) {
+    		output += (" *" + info[3] + "*")
+  		}
+  		else{
+  			output += ("\nRSVP: <http://" + info[3] + "|LINK>");
+  		}
+					//time
 	}
 	if (info.length >= 5){
 		output += ("\nRSVP: <http://" + info[4] + "|LINK>");
