@@ -11,6 +11,11 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
+
+//global variables 
+var info = [];
+var mom = "";
+
 app.set('port', (process.env.PORT || 5000));
 
 // app.use(express.static(__dirname + '/public'));
@@ -31,7 +36,7 @@ app.post('/event', function(request, response) {
 
 	var text = request.body.text;
 
-	var info = text.trim().split(",");
+	info = text.trim().split(",");
 	var output = "";
 	var date_info = "";
 	var insert_button = "";
@@ -67,7 +72,7 @@ app.post('/event', function(request, response) {
 	}
 
 	console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
-	var mom = moment(date_info, 'D/MM/YY h:mma'); 
+	mom = moment(date_info, 'D/MM/YY h:mma'); 
 
 	console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
 	console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
@@ -87,7 +92,7 @@ app.post('/event', function(request, response) {
 	  }
 	  // Authorize a client with the loaded credentials, then call the
 	  // Google Calendar API.
-	  authorize(JSON.parse(content), create_calendar_event(info, mom));
+	  authorize(JSON.parse(content), create_calendar_event);
 	});
 
 	/*******************
@@ -171,7 +176,7 @@ function send_email(campaign_id){
 	});
 }
 
-function create_calendar_event(info, mom, auth){
+function create_calendar_event(auth){
 	var event = {
 	  'summary': info[0].trim(),
 	  'location': info[1].trim(),
