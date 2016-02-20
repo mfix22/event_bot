@@ -118,7 +118,7 @@ app.post('/event', function(request, response) {
 		});
 	});
 
-	if (info[info.length - 1].toLowerCase()localeCompare("send")){
+	if (info[info.length - 1].toLowerCase().localeCompare("send")){
 		console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++HERE: ");
 		//send campaign
 		var options = { method: 'POST',
