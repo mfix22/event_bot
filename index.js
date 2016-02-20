@@ -28,7 +28,7 @@ app.post('/event', function(request, response) {
 	var output = "";
 	var date_info = "";
 
-	for (i : info){
+	for (var i : info){
 		if (moment(i).isValid()){
 			date_info += (i + " ");
 		}
