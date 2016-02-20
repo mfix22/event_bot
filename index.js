@@ -190,7 +190,12 @@ function create_calendar_event(auth){
 	  },
 	};
 
-	var calendar = google.calendar('v3');
+	// var credentials = JSON.parse(fs.readFile('client_secret.json', function processClientSecrets(err, content)));
+	// var clientSecret = credentials.installed.client_secret;
+ //  	var clientId = credentials.installed.client_id;
+ //  	var redirectUrl = credentials.installed.redirect_uris[0];
+	// var calendar = google.calendar('v3');
+	// var auth = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 	calendar.events.insert({
 	  auth: auth,
 	  calendarId: 'primary',
