@@ -3,7 +3,6 @@ var app = express();
 // var pg = require('pg');
 var bodyParser = require('body-parser');
 var moment = require('moment');
-moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -44,7 +43,7 @@ app.post('/event', function(request, response) {
 	}
 
 	var mom = moment(date_info);
-	console.log("\n\n-------------------------------------" + mom + "-------------------------------------")
+	console.log("\n\n-------------------------------------" + mom.format("dddd, MMMM Do YYYY, h:mm:ss a"); + "-------------------------------------")
 
     response.send(output);
 });
