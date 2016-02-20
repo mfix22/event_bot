@@ -26,17 +26,21 @@ app.post('/event', function(request, response) {
 
 	var info = text.trim().split(/\s+/);
 	var output = "";
-	var date_info = [];
+	var date_info = "";
+
+	for (i : info){
+		if (moment(i).isValid()){
+			date_info += (i + " ");
+		}
+	}
+	
 	if (info.length >= 3){
 		output += ("What: *" + info[0] + "*\n");	//what
 		output += ("Where: *" + info[1] + "*\n")	//where
 		output += ("When: *" + info[2] + "*")		//date
-
-		date_info.push(info[2]);
 	}
 	if (info.length >= 4){
 		output += (" *" + info[3] + "*")			//time
-		date_info.push(info[3]);
 	}
 	if (info.length >= 5){
 		output += ("<http://" + info[4] + "|LINK>");
