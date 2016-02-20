@@ -197,7 +197,7 @@ function create_calendar_event(auth){
 	var redirectUrl = "http://localhost";
 	var auth = new googleAuth();
 	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-	var calendar = calendar = google.calendar('v3');
+	var calendar = google.calendar('v3');
 
 	oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
 	  // Now tokens contains an access_token and an optional refresh_token. Save them.
@@ -211,7 +211,7 @@ function create_calendar_event(auth){
 	});
 
 	calendar.events.insert({
-	  auth: auth,
+	  auth: oauth2Client,
 	  calendarId: 'primary',
 	  resource: event,
 	}, function(err, event) {
