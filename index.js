@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 // var pg = require('pg');
 var bodyParser = require('body-parser');
+var moment = require('moment');
+moment().format();
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -20,7 +22,11 @@ app.get('/', function(request, response) {
 
 app.post('/event', function(request, response) {
 	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
+
 	var text = request.body.text;
+	var mom = moment(text);
+	console.log("-------------------------------------" + mom + "-------------------------------------")
+
 	var info = text.trim().split(/\s+/);
 	var what = "nothing";
 	var where = "nowhere";
