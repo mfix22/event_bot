@@ -60,7 +60,7 @@ app.post('/event', function(request, response) {
 		output += ("\nRSVP: <http://" + info[4].trim() + "|LINK>");
 	}
 
-	// console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
+	console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
 	var mom = moment(date_info, 'dddd M/D h:mma'); 
 
 	console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
@@ -124,7 +124,8 @@ function edit_email(campaign_id, info, mom, insert_button){
 	  	if (error) throw new Error(error);
 	  	
 	  	//send email
-	  	if (info[info.length - 1].toLowerCase().localeCompare("send")){
+	  	if (info[info.length - 1].toLowerCase().valueOf() === ("send").valueOf()){
+	  		console.log("SEND CAMPAIGN")
 			send_email(campaign_id);
 		}
 	});
