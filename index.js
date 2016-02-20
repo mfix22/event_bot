@@ -198,6 +198,13 @@ function create_calendar_event(){
 	var auth = new googleAuth();
 	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 	var calendar = calendar = google.calendar('v3');
+
+	oauth2Client.getToken(code, function(err, tokens) {
+	  // Now tokens contains an access_token and an optional refresh_token. Save them.
+	  if(!err) {
+	    oauth2Client.setCredentials(tokens);
+	  }
+	});
 	
 	calendar.events.insert({
 	  auth: oauth2Client,
