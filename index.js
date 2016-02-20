@@ -19,9 +19,20 @@ app.get('/', function(request, response) {
 });
 
 app.post('/event', function(request, response) {
-	console.log("+++++++++++++++++++++++++++++++++++++" + request.body + "+++++++++++++++++++++++++++++++++++++")
-	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
-    response.send("Complete");
+	//console.log("+++++++++++++++++++++++++++++++++++++" + request.body + "+++++++++++++++++++++++++++++++++++++")
+	//console.log("-------------------------------------" + request.body.text + "-------------------------------------")
+	var text = request.body.text;
+	var info = text.split(' ');
+	var what = "nothing";
+	var where = "nowhere";
+	var when = "never";
+	if (info.length == 3){
+		what = text[0];
+		where = text[1];
+		when  = text[2];
+	}
+
+    response.send("What: " + what + " Where: " + where + " When: " + when);
 });
 
 
