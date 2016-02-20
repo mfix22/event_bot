@@ -20,6 +20,7 @@ app.get('/', function(request, response) {
 
 app.post('/event', function(request, response) {
 	console.log("+++++++++++++++++++++++++++++++++++++" + request.body + "+++++++++++++++++++++++++++++++++++++")
+	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
     response.send("Complete");
 });
 
