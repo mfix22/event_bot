@@ -75,28 +75,30 @@ app.post('/event', function(request, response) {
 
 	// var rq = require("request");
 	//create campaign
-	var options = { method: 'POST',
-					  url: 'https://us10.api.mailchimp.com/3.0/campaigns/',
+	var options = { method: "POST",
+					  url: "https://us10.api.mailchimp.com/3.0/campaigns/",
 					  headers: 
-					   { 'postman-token': 'd59aa217-35d3-5674-8ca6-172145adf985',
-					     'cache-control': 'no-cache',
-					     'content-type': 'application/json',
-					     authorization: 'Basic dXNlcjpkMjRmZDk0Y2VkNzJhMGJmMDlkMGViNDVmMDBhMThkYS11czEw' },
+					   { "postman-token": "d59aa217-35d3-5674-8ca6-172145adf985",
+					     "cache-control": "no-cache",
+					     "content-type": "application/json",
+					     authorization: "Basic dXNlcjpkMjRmZDk0Y2VkNzJhMGJmMDlkMGViNDVmMDBhMThkYS11czEw" },
 					  body: 
-					   { type: 'regular',
-					     recipients: { list_id: '75a7a58c99' },
+					   { type: "regular",
+					     recipients: { list_id: "75a7a58c99" },
 					     settings: 
 					      { subject_line: subject,
 					        title: title,
-					        from_name: 'Transcend',
-					        reply_to: 'transcenduw@gmail.com' } },
+					        from_name: "Transcend",
+					        reply_to: "transcenduw@gmail.com" 
+					      }
+					   },
 					  json: true };
 
 		request(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
 
-	  	console.log("+++Body: " + body);
-	  	console.log("+++response: " + response);
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
+	  	//console.log("+++response: " + response);
 	  	campaign_id = body.id;
 	});
 
