@@ -41,7 +41,7 @@ app.post('/event', function(request, response) {
 		output += ("When: *" + info[2] + "*")		//date
 	}
 	if (info.length >= 4){
-		vvar pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+		var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
   			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
   			'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
   			'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
