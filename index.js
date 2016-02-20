@@ -94,7 +94,7 @@ app.post('/event', function(request, response) {
 					   },
 					  json: true };
 
-		request(options, function (error, response, body) {
+	rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
 
 	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
@@ -128,7 +128,7 @@ app.post('/event', function(request, response) {
 						     'content-type': 'application/json',
 						     authorization: 'Basic dXNlcjpkMjRmZDk0Y2VkNzJhMGJmMDlkMGViNDVmMDBhMThkYS11czEw' } };
 
-			request(options, function (error, response, body) {
+		rq(options, function (error, response, body) {
 			if (error) throw new Error(error);
 
 		  	//console.log(body);
