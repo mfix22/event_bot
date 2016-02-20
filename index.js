@@ -31,14 +31,12 @@ app.post('/event', function(request, response) {
 	var insert_button = "";
 	var subject = "Transcend Event - " + info[0].trim();
 	var campaign_id;
-	var title;
 	
 	if (info.length >= 3){
 		output += ("What: *" + info[0].trim() + "*\n");	//what
 		output += ("Where: *" + info[1].trim() + "*\n")	//where
 		output += ("When: *" + info[2].trim() + "*")		//date
 		date_info += (info[2].trim() + " ");
-		title += info[0].trim() + " " + moment().format("MMDDYY");
 	}
 	if (info.length >= 4){
 		var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -86,11 +84,12 @@ app.post('/event', function(request, response) {
 					   { type: "regular",
 					     recipients: { list_id: "75a7a58c99" },
 					     settings: 
-					      { subject_line: subject,
-					        title: title,
-					        from_name: "Transcend",
-					        reply_to: "transcenduw@gmail.com" 
-					      }
+						      { 
+						      	subject_line: subject,
+						        title: (info[0].trim() + " " + moment().format("MMDDYY")),
+						        from_name: "Transcend",
+						        reply_to: "transcenduw@gmail.com" 
+						      }
 					   },
 					  json: true };
 
@@ -98,7 +97,7 @@ app.post('/event', function(request, response) {
 	  	if (error) throw new Error(error);
 
 	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Body: " + body.id);
-	  	//console.log("+++response: " + response);
+	  	//console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Response: " + response);
 	  	campaign_id = body.id;
 	});
 
