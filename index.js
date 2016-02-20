@@ -21,7 +21,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/event', function(request, response) {
-	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
+	// console.log("-------------------------------------" + request.body.text + "-------------------------------------")
 
 	var text = request.body.text;
 
@@ -59,10 +59,11 @@ app.post('/event', function(request, response) {
 		output += ("\nRSVP: <http://" + info[4] + "|LINK>");
 	}
 
+	console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
 	var mom = moment(date_info); 
 
-	console.log("\n\n-------------------------------------" + mom.format('dddd M/D h:mma') + "-------------------------------------");
-	console.log("\n\n-------------------------------------" + mom.calendar(null, {
+	console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
+	console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
 																				    sameDay: '[Today] at M/D h:mma' ,
 																				    nextDay: '[Tomorrow] dddd M/D h:mma',
 																				    nextWeek: 'Next dddd M/D h:mma',
