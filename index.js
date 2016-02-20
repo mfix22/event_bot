@@ -44,7 +44,7 @@ app.post('/event', function(request, response) {
 		output += (" *" + info[3] + "*")			//time
 	}
 	if (info.length >= 5){
-		output += ("<http://" + info[4] + "|LINK>");
+		output += ("\nRSVP: <http://" + info[4] + "|LINK>");
 	}
 
 	var mom = moment(date_info);
