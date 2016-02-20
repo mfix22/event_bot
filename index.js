@@ -34,7 +34,7 @@ app.post('/event', function(request, response) {
 		output += ("What: *" + info[0] + "*\n");	//what
 		output += ("Where: *" + info[1] + "*\n")	//where
 		output += ("When: *" + info[2] + "*")		//date
-		date_info += info[2];
+		date_info += (info[2] + " ");
 	}
 	if (info.length >= 4){
 		var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
