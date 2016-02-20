@@ -85,17 +85,19 @@ app.post('/event', function(request, response) {
 
 	//create Google Calendar event
 	
-	// create_calendar_event();
+
+
+	create_calendar_event(auth);
 	// Load client secrets from a local file.
-	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-	  if (err) {
-	    console.log('Error loading client secret file: ' + err);
-	    return;
-	  }
-	  // Authorize a client with the loaded credentials, then call the
-	  // Google Calendar API.
-	  authorize(JSON.parse(content), create_calendar_event);
-	});
+	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	//   if (err) {
+	//     console.log('Error loading client secret file: ' + err);
+	//     return;
+	//   }
+	//   // Authorize a client with the loaded credentials, then call the
+	//   // Google Calendar API.
+	//   authorize(JSON.parse(content), create_calendar_event);
+	// });
 
 	/*******************
 	 * create campaign *
@@ -191,23 +193,6 @@ function create_calendar_event(auth){
 	    'timeZone': 'America/Chicago',
 	  },
 	};
-
-	// var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
-	// var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
-	// var redirectUrl = "http://localhost";
-	// var auth = new googleAuth();
-	// var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-	// var calendar = google.calendar('v3');
-
-	// oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
-	//   // Now tokens contains an access_token and an optional refresh_token. Save them.
-	//   if(!err) {
-	//     oauth2Client.setCredentials(tokens);
-	//   }
-	//   else{
-	//   	console.log("+++++++++++++++++++++++++++++++" + err);
-	//   }
-	// });
 
 	calendar.events.insert({
 	  auth: auth,
