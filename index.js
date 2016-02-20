@@ -19,8 +19,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/event', function(request, response) {
-	//console.log("+++++++++++++++++++++++++++++++++++++" + request.body + "+++++++++++++++++++++++++++++++++++++")
-	//console.log("-------------------------------------" + request.body.text + "-------------------------------------")
+	console.log("-------------------------------------" + request.body.text + "-------------------------------------")
 	var text = request.body.text;
 	var info = text.split(' ');
 	var what = "nothing";
