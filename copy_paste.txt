@@ -3,4 +3,6 @@ https://us10.api.mailchimp.com/3.0/campaigns/de87cbb73a/content
 d24fd94ced72a0bf09d0eb45f00a18da-us10
 /event Transcend Madison, Union South, 3/11/16, 9:00, transcend.engineering
 /event Officer Meeting, 1606 ECB, 2/22/16, 9:00
-insert_link = '<a class="mcnButton " title="SIGN UP HERE" href="http://' + info[3] + '" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">SIGN UP HERE</a>\n'
+
+
+4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE
