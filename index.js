@@ -30,6 +30,7 @@ app.post('/event', function(request, response) {
 
 	for (var i = 0; i < info.length; i++){
 		if (moment(info[i]).isValid()){
+			console.log("Valid Moment " + info[i]);
 			date_info += (info[i] + " ");
 		}
 	}
@@ -47,11 +48,11 @@ app.post('/event', function(request, response) {
 	}
 
 	var mom = moment(date_info);
-	console.log(mom.get('year'));
-	console.log(mom.get('month'));  // 0 to 11
-	console.log(mom.get('date'));
-	console.log(mom.get('hour'));
-	console.log(mom.get('minute'));
+	console.log('Year:' + mom.get('year'));
+	console.log('Month:' + mom.get('month'));  // 0 to 11
+	console.log('Date' + mom.get('date'));
+	console.log('Hour' + mom.get('hour'));
+	console.log('Minute' + mom.get('minute'));
 
 	console.log("\n\n-------------------------------------" + mom.format("LLLL") + "-------------------------------------");
 
