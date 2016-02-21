@@ -202,31 +202,31 @@ function create_calendar_event(auth){
 	console.log("\n================Start Time: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
 	console.log("\n================End Time: " + mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"));
 
-	// var event_1 = {
-	//   'summary': info[0].trim(),
- //  	  // 'location': info[1].trim(),
-	//   'start': {
-	//     'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
-	//     'timeZone': 'America/Chicago',
-	//   },
-	//   'end': {
-	//     'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
-	//     'timeZone': 'America/Chicago',
-	//   },
-	// };
 	var event_1 = {
-	  'summary': 'Google I/O 2015',
-	  'location': '800 Howard St., San Francisco, CA 94103',
-	  'description': 'A chance to hear more about Google\'s developer products.',
+	  'summary': info[0].trim(),
+  	  // 'location': info[1].trim(),
 	  'start': {
-	    'dateTime': '2015-05-28T09:00:00-07:00',
-	    'timeZone': 'America/Los_Angeles',
+	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': '2015-05-28T17:00:00-07:00',
-	    'timeZone': 'America/Los_Angeles',
-	  }
+	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
+	  },
 	};
+	// var event_1 = {
+	//   'summary': 'Google I/O 2015',
+	//   'location': '800 Howard St., San Francisco, CA 94103',
+	//   'description': 'A chance to hear more about Google\'s developer products.',
+	//   'start': {
+	//     'dateTime': '2015-05-28T09:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   },
+	//   'end': {
+	//     'dateTime': '2015-05-28T17:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   }
+	// };
 
 
 	var cal = google.calendar('v3');
@@ -298,7 +298,7 @@ function getNewToken(oauth2Client, callback) {
   // });
   // rl.question('Enter the code from that page here: ', function(code) {
     // rl.close();
-    code = "4/RkGJi8TCKL2tbnm3rh24rpkZWY0jDtOTosM1ysEMCFY"
+    code = "4/JpanNjgzoIVxvVEk4NY4bSgCsOdCMcb3_f7p4CWE2sw"
     oauth2Client.getToken(code, function(err, token) {
       if (err) {
         console.log('Error while trying to retrieve access token', err);
