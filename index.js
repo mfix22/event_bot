@@ -294,7 +294,7 @@ function getNewToken(oauth2Client, callback) {
   // });
   // rl.question('Enter the code from that page here: ', function(code) {
     // rl.close();
-    code = "4/3-EvTmol3qCgUWih7Qm6qPTomn6t0_eZJ0P09HARy2I"
+    code = "4/RkGJi8TCKL2tbnm3rh24rpkZWY0jDtOTosM1ysEMCFY"
     oauth2Client.getToken(code, function(err, token) {
       if (err) {
         console.log('Error while trying to retrieve access token', err);
