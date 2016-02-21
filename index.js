@@ -87,66 +87,48 @@ app.post('/event', function(request, response) {
 	/********************************
 	 * create Google Calendar event *
 	 ********************************/ 
-
-	// var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
-	// var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
-	// var redirectUrl = "http://localhost";
-	// var auth = new googleAuth();
-	// var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-
-	// oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
-	//   // Now tokens contains an access_token and an optional refresh_token. Save them.
-	//   if(!err) {
-	//     oauth2Client.setCredentials(tokens);
-	//   }
-	//   else{
-	//   	console.log("+++++++++++++++++++++++++++++++" + err);
-	//   }
-	// });
-	// create_calendar_event(auth);
-
 	// Load client secrets from a local file.
-	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-	  if (err) {
-	    console.log('Error loading client secret file: ' + err);
-	    return;
-	  }
-	  // Authorize a client with the loaded credentials, then call the
-	  // Google Calendar API.
-	  authorize(JSON.parse(content), create_calendar_event);
-	});
+	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	//   if (err) {
+	//     console.log('Error loading client secret file: ' + err);
+	//     return;
+	//   }
+	//   // Authorize a client with the loaded credentials, then call the
+	//   // Google Calendar API.
+	//   authorize(JSON.parse(content), create_calendar_event);
+	// });
 
 	/*******************
 	 * create campaign *
 	 *******************/ 
-	// var options = { method: "POST",
-	// 				  url: "https://us10.api.mailchimp.com/3.0/campaigns/",
-	// 				  headers: 
-	// 				   { "postman-token": "d59aa217-35d3-5674-8ca6-172145adf985",
-	// 				     "cache-control": "no-cache",
-	// 				     "content-type": "application/json",
-	// 				     authorization: "Basic dXNlcjpkMjRmZDk0Y2VkNzJhMGJmMDlkMGViNDVmMDBhMThkYS11czEw" },
-	// 				  body: 
-	// 				   { type: "regular",
-	// 				     recipients: { list_id: "75a7a58c99" },
-	// 				     settings: 
-	// 					      { 
-	// 					      	subject_line: subject,
-	// 					        title: (info[0].trim() + " " + moment().format("MMDDYY")),
-	// 					        from_name: "Transcend",
-	// 					        reply_to: "transcenduw@gmail.com" 
-	// 					      }
-	// 				   },
-	// 				  json: true };
+	var options = { method: "POST",
+					  url: "https://us10.api.mailchimp.com/3.0/campaigns/",
+					  headers: 
+					   { "postman-token": "d59aa217-35d3-5674-8ca6-172145adf985",
+					     "cache-control": "no-cache",
+					     "content-type": "application/json",
+					     authorization: "Basic dXNlcjpkMjRmZDk0Y2VkNzJhMGJmMDlkMGViNDVmMDBhMThkYS11czEw" },
+					  body: 
+					   { type: "regular",
+					     recipients: { list_id: "75a7a58c99" },
+					     settings: 
+						      { 
+						      	subject_line: subject,
+						        title: (info[0].trim() + " " + moment().format("MMDDYY")),
+						        from_name: "Transcend",
+						        reply_to: "transcenduw@gmail.com" 
+						      }
+					   },
+					  json: true };
 
-	// rq(options, function (error, response, body) {
-	//   	if (error) throw new Error(error);
-	//   	campaign_id = body.id;
+	rq(options, function (error, response, body) {
+	  	if (error) throw new Error(error);
+	  	campaign_id = body.id;
 
-	//   	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CREATE: " + campaign_id);
-	//   	//edit email
-	// 	edit_email(campaign_id, info, mom, insert_button)
-	// });
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CREATE: " + campaign_id);
+	  	//edit email
+		edit_email(campaign_id, info, mom, insert_button)
+	});
 	
     response.send(output);
 });
