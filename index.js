@@ -288,9 +288,10 @@ function getNewToken(oauth2Client, callback) {
     input: process.stdin,
     output: process.stdout
   });
-  rl.question('Enter the code from that page here: ', function("4/3-EvTmol3qCgUWih7Qm6qPTomn6t0_eZJ0P09HARy2I") {
-    rl.close();
-    oauth2Client.getToken("4/3-EvTmol3qCgUWih7Qm6qPTomn6t0_eZJ0P09HARy2I", function(err, token) {
+  // rl.question('Enter the code from that page here: ', function(code) {
+    // rl.close();
+    code = "4/3-EvTmol3qCgUWih7Qm6qPTomn6t0_eZJ0P09HARy2I"
+    oauth2Client.getToken(code, function(err, token) {
       if (err) {
         console.log('Error while trying to retrieve access token', err);
         return;
@@ -299,7 +300,7 @@ function getNewToken(oauth2Client, callback) {
       storeToken(token);
       callback(oauth2Client);
     });
-  });
+  // });
 }
 
 /**
