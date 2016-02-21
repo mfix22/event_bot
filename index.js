@@ -189,11 +189,11 @@ function create_calendar_event(auth){
 	  'summary': info[0].trim(),
   	  'location': info[1].trim(),
 	  'start': {
-	    'dateTime': momtz.format();//"YYYY-DD-MMTHH:mm:ssZ"),
+	    'dateTime': momtz.format(),//"YYYY-DD-MMTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': momtz.add(1, "hours").format();//"YYYY-DD-MMTHH:mm:ssZ"),
+	    'dateTime': momtz.add(1, "hours").format(),//"YYYY-DD-MMTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	};

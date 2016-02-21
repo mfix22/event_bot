@@ -4,3 +4,6 @@ Dockerfile
 docker-compose.yml
 client_secret.json
 .gitignore
+client_secret.json
+Procfile
+quickstart.js
