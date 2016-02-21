@@ -83,34 +83,33 @@ app.post('/event', function(request, response) {
 	console.log("\n\n--------------------------------------ISO: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
 
 	//create Google Calendar event
-	
 
-	var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
-	var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
-	var redirectUrl = "http://localhost";
-	var auth = new googleAuth();
-	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+	// var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
+	// var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
+	// var redirectUrl = "http://localhost";
+	// var auth = new googleAuth();
+	// var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-	oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
-	  // Now tokens contains an access_token and an optional refresh_token. Save them.
-	  if(!err) {
-	    oauth2Client.setCredentials(tokens);
-	  }
-	  else{
-	  	console.log("+++++++++++++++++++++++++++++++" + err);
-	  }
-	});
-	create_calendar_event(auth);
-	// Load client secrets from a local file.
-	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-	//   if (err) {
-	//     console.log('Error loading client secret file: ' + err);
-	//     return;
+	// oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
+	//   // Now tokens contains an access_token and an optional refresh_token. Save them.
+	//   if(!err) {
+	//     oauth2Client.setCredentials(tokens);
 	//   }
-	//   // Authorize a client with the loaded credentials, then call the
-	//   // Google Calendar API.
-	//   authorize(JSON.parse(content), create_calendar_event);
+	//   else{
+	//   	console.log("+++++++++++++++++++++++++++++++" + err);
+	//   }
 	// });
+	// create_calendar_event(auth);
+	// Load client secrets from a local file.
+	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	  if (err) {
+	    console.log('Error loading client secret file: ' + err);
+	    return;
+	  }
+	  // Authorize a client with the loaded credentials, then call the
+	  // Google Calendar API.
+	  authorize(JSON.parse(content), create_calendar_event);
+	});
 
 	/*******************
 	 * create campaign *
@@ -195,21 +194,35 @@ function send_email(campaign_id){
 
 function create_calendar_event(auth){
 	var event_1 = {
-	  'summary': "TEST",//TODO info[0].trim(),
-	  'location': "TEST",//TODO info[1].trim(),
+	  'summary': info[0].trim(),
+  	  'location': info[1].trim(),
 	  'start': {
-	    'dateTime': "TEST",//TODO mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': "TEST",//TODO mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	};
+	// var event_1 = {
+	//   'summary': 'Google I/O 2015',
+	//   'location': '800 Howard St., San Francisco, CA 94103',
+	//   'description': 'A chance to hear more about Google\'s developer products.',
+	//   'start': {
+	//     'dateTime': '2015-05-28T09:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   },
+	//   'end': {
+	//     'dateTime': '2015-05-28T17:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   }
+	// };
+
 
 	var cal = google.calendar('v3');
 	cal.events.insert({
-	  // auth: auth,
+	  auth: auth,
 	  calendarId: 'primary',
 	  resource: event_1,
 	}, function(err, event_1) {
@@ -306,6 +319,18 @@ function storeToken(token) {
 }
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
+
+// Load client secrets from a local file.
+fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+  if (err) {
+    console.log('Error loading client secret file: ' + err);
+    return;
+  }
+  // Authorize a client with the loaded credentials, then call the
+  // Google Calendar API.
+  authorize(JSON.parse(content), create_calendar_event);
+});
+
 
 //start server
 app.listen(app.get('port'), function() {
