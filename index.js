@@ -3,6 +3,7 @@ var app = express();
 // var pg = require('pg');
 var bodyParser = require('body-parser');
 var moment = require('moment');
+var mtz    = require('moment-timezone');
 var rq = require("request");
 
 //Google
@@ -70,8 +71,8 @@ app.post('/event', function(request, response) {
 		output += ("\nRSVP: <http://" + info[4].trim() + "|LINK>");
 	}
 	
-	mom = moment(date_info, 'D/MM/YY h:mma'); 
-
+	mom =  moment(date_info, 'D/MM/YY h:mma'); 
+	momtz = mtz.tz(date_info, "America/Chicago");
 	// console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
 	// console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
 	// console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
@@ -206,12 +207,12 @@ function create_calendar_event(auth){
 	  'summary': info[0].trim(),
   	  'location': info[1].trim(),
 	  'start': {
-	    'dateTime': mom.format("YYYY-DD-MMTHH:mm:ssZ"),
-	    'timeZone': 'Africa/Lome',
+	    'dateTime': momtz.format();//"YYYY-DD-MMTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': mom.add(1, "hours").format("YYYY-DD-MMTHH:mm:ssZ"),
-	    'timeZone': 'Africa/Lome',
+	    'dateTime': momtz.add(1, "hours").format();//"YYYY-DD-MMTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
 	  },
 	};
 	// var event_1 = {
