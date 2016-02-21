@@ -199,18 +199,18 @@ function send_email(campaign_id){
 
 function create_calendar_event(auth){
 	console.log("\n================Summary: " + info[0].trim());
-	console.log("\n================Start Time: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
-	console.log("\n================End Time: " + mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"));
+	console.log("\n================Start Time: " + mom.format("YYYY-DD-MMTHH:mm:ssZ"));
+	console.log("\n================End Time: " + mom.add(1, "hours").format("YYYY-DD-MMTHH:mm:ssZ"));
 
 	var event_1 = {
 	  'summary': info[0].trim(),
   	  // 'location': info[1].trim(),
 	  'start': {
-	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'dateTime': mom.format("YYYY-DD-MMTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'dateTime': mom.add(1, "hours").format("YYYY-DD-MMTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
 	  },
 	};
