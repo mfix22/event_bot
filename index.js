@@ -69,18 +69,18 @@ app.post('/event', function(request, response) {
 		insert_button = '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #2BAADF;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                    <tbody>\n                        <tr>\n                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                                <a class="mcnButton " title="SIGN UP HERE" href="http://' + info[4].trim() + '" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">SIGN UP HERE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n'
 		output += ("\nRSVP: <http://" + info[4].trim() + "|LINK>");
 	}
-
-	console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
+	
 	mom = moment(date_info, 'D/MM/YY h:mma'); 
 
-	console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
-	console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
-																				    sameDay: '[Today] at M/D h:mma' ,
-																				    nextDay: '[Tomorrow] dddd M/D h:mma',
-																				    nextWeek: 'Next dddd M/D h:mma',
-																				    sameElse: 'dddd M/D h:mma'
-																				}) + "-------------------------------------");
-	console.log("\n\n--------------------------------------ISO: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
+	// console.log("\n\n-------------------------------------Date Info:" + date_info + "-------------------------------------");
+	// console.log("\n\n-------------------------------------Formatted:" + mom.format('dddd M/D h:mma') + "-------------------------------------");
+	// console.log("\n\n-------------------------------------Calendar:" + mom.calendar(null, {
+	// 																			    sameDay: '[Today] at M/D h:mma' ,
+	// 																			    nextDay: '[Tomorrow] dddd M/D h:mma',
+	// 																			    nextWeek: 'Next dddd M/D h:mma',
+	// 																			    sameElse: 'dddd M/D h:mma'
+	// 																			}) + "-------------------------------------");
+	// console.log("\n\n--------------------------------------ISO: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
 
 	//create Google Calendar event
 
@@ -140,6 +140,7 @@ app.post('/event', function(request, response) {
 	  	if (error) throw new Error(error);
 	  	campaign_id = body.id;
 
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CREATE: " + campaign_id);
 	  	//edit email
 		edit_email(campaign_id, info, mom, insert_button)
 	});
@@ -165,8 +166,9 @@ function edit_email(campaign_id, info, mom, insert_button){
 	rq(options, function (error, response, body) {
 	  	if (error) throw new Error(error);
 	  	
+	  	console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++EDIT: " + campaign_id);
 	  	//send email
-	  	if (info[info.length - 1].toLowerCase().valueOf() === ("send").valueOf()){
+	  	if (info[info.length - 1].trim().toLowerCase().valueOf() == ("send").valueOf()){
 	  		console.log("SEND CAMPAIGN")
 			send_email(campaign_id);
 		}
