@@ -198,31 +198,31 @@ function send_email(campaign_id){
 }
 
 function create_calendar_event(auth){
-	// var event_1 = {
-	//   'summary': info[0].trim(),
- //  	  'location': info[1].trim(),
-	//   'start': {
-	//     'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
-	//     'timeZone': 'America/Chicago',
-	//   },
-	//   'end': {
-	//     'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
-	//     'timeZone': 'America/Chicago',
-	//   },
-	// };
 	var event_1 = {
-	  'summary': 'Google I/O 2015',
-	  'location': '800 Howard St., San Francisco, CA 94103',
-	  'description': 'A chance to hear more about Google\'s developer products.',
+	  'summary': info[0].trim(),
+  	  'location': info[1].trim(),
 	  'start': {
-	    'dateTime': '2015-05-28T09:00:00-07:00',
-	    'timeZone': 'America/Los_Angeles',
+	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
 	  },
 	  'end': {
-	    'dateTime': '2015-05-28T17:00:00-07:00',
-	    'timeZone': 'America/Los_Angeles',
-	  }
+	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	    'timeZone': 'America/Chicago',
+	  },
 	};
+	// var event_1 = {
+	//   'summary': 'Google I/O 2015',
+	//   'location': '800 Howard St., San Francisco, CA 94103',
+	//   'description': 'A chance to hear more about Google\'s developer products.',
+	//   'start': {
+	//     'dateTime': '2015-05-28T09:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   },
+	//   'end': {
+	//     'dateTime': '2015-05-28T17:00:00-07:00',
+	//     'timeZone': 'America/Los_Angeles',
+	//   }
+	// };
 
 
 	var cal = google.calendar('v3');
@@ -327,15 +327,16 @@ function storeToken(token) {
 //--------------------------------------------------------------------------------------------------
 
 // Load client secrets from a local file.
-fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-  if (err) {
-    console.log('Error loading client secret file: ' + err);
-    return;
-  }
-  // Authorize a client with the loaded credentials, then call the
-  // Google Calendar API.
-  authorize(JSON.parse(content), create_calendar_event);
-});
+//DEBUG
+// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+//   if (err) {
+//     console.log('Error loading client secret file: ' + err);
+//     return;
+//   }
+//   // Authorize a client with the loaded credentials, then call the
+//   // Google Calendar API.
+//   authorize(JSON.parse(content), create_calendar_event);
+// });
 
 
 //start server
