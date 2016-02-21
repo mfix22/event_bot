@@ -115,7 +115,7 @@ app.post('/event', function(request, response) {
 	//   	console.log("+++++++++++++++++++++++++++++++" + err);
 	//   }
 	// });
-	passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/calendard'] });
+	passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/calendar'] });
 	create_calendar_event();
 	// Load client secrets from a local file.
 	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
