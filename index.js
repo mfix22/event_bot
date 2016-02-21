@@ -200,7 +200,7 @@ function send_email(campaign_id){
 function create_calendar_event(auth){
 	var event_1 = {
 	  'summary': info[0].trim(),
-  	  'location': info[1].trim(),
+  	  // 'location': info[1].trim(),
 	  'start': {
 	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
 	    'timeZone': 'America/Chicago',
