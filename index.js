@@ -202,31 +202,31 @@ function create_calendar_event(auth){
 	console.log("\n================Start Time: " + mom.format("YYYY-MM-DDTHH:mm:ssZ"));
 	console.log("\n================End Time: " + mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"));
 
-	var event_1 = {
-	  'summary': info[0].trim(),
-  	  // 'location': info[1].trim(),
-	  'start': {
-	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
-	  },
-	  'end': {
-	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
-	  },
-	};
 	// var event_1 = {
-	//   'summary': 'Google I/O 2015',
-	//   'location': '800 Howard St., San Francisco, CA 94103',
-	//   'description': 'A chance to hear more about Google\'s developer products.',
+	//   'summary': info[0].trim(),
+ //  	  // 'location': info[1].trim(),
 	//   'start': {
-	//     'dateTime': '2015-05-28T09:00:00-07:00',
-	//     'timeZone': 'America/Los_Angeles',
+	//     'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	//     'timeZone': 'America/Chicago',
 	//   },
 	//   'end': {
-	//     'dateTime': '2015-05-28T17:00:00-07:00',
-	//     'timeZone': 'America/Los_Angeles',
-	//   }
+	//     'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	//     'timeZone': 'America/Chicago',
+	//   },
 	// };
+	var event_1 = {
+	  'summary': 'Google I/O 2015',
+	  'location': '800 Howard St., San Francisco, CA 94103',
+	  'description': 'A chance to hear more about Google\'s developer products.',
+	  'start': {
+	    'dateTime': '2015-05-28T09:00:00-07:00',
+	    'timeZone': 'America/Los_Angeles',
+	  },
+	  'end': {
+	    'dateTime': '2015-05-28T17:00:00-07:00',
+	    'timeZone': 'America/Los_Angeles',
+	  }
+	};
 
 
 	var cal = google.calendar('v3');
