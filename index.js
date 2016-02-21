@@ -11,21 +11,6 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-
-passport.use(new GoogleStrategy({
-    clientID: "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com",
-    clientSecret: "lBnhHDekFvJwOR-iMSLaJLqM",
-    callbackURL: "http://localhost"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
-
 //global variables 
 var info = [];
 var mom = "";
@@ -100,23 +85,22 @@ app.post('/event', function(request, response) {
 	//create Google Calendar event
 	
 
-	// var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
-	// var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
-	// var redirectUrl = "http://localhost";
-	// var auth = new googleAuth();
-	// var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+	var clientSecret = "lBnhHDekFvJwOR-iMSLaJLqM";
+	var clientId = "457294343935-ouvdf3o1hoc4ron6l0o7bhgk8fu4vrtv.apps.googleusercontent.com";
+	var redirectUrl = "http://localhost";
+	var auth = new googleAuth();
+	var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-	// oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
-	//   // Now tokens contains an access_token and an optional refresh_token. Save them.
-	//   if(!err) {
-	//     oauth2Client.setCredentials(tokens);
-	//   }
-	//   else{
-	//   	console.log("+++++++++++++++++++++++++++++++" + err);
-	//   }
-	// });
-	passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/calendar'] });
-	create_calendar_event();
+	oauth2Client.getToken("4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE", function(err, tokens) {
+	  // Now tokens contains an access_token and an optional refresh_token. Save them.
+	  if(!err) {
+	    oauth2Client.setCredentials(tokens);
+	  }
+	  else{
+	  	console.log("+++++++++++++++++++++++++++++++" + err);
+	  }
+	});
+	create_calendar_event(auth);
 	// Load client secrets from a local file.
 	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
 	//   if (err) {
