@@ -204,14 +204,14 @@ function create_calendar_event(auth){
 
 	var event_1 = {
 	  'summary': info[0].trim(),
-  	  // 'location': info[1].trim(),
+  	  'location': info[1].trim(),
 	  'start': {
 	    'dateTime': mom.format("YYYY-DD-MMTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
+	    'timeZone': 'Africa/Lome',
 	  },
 	  'end': {
 	    'dateTime': mom.add(1, "hours").format("YYYY-DD-MMTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
+	    'timeZone': 'Africa/Lome',
 	  },
 	};
 	// var event_1 = {
