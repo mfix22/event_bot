@@ -100,21 +100,22 @@ app.post('/event', function(request, response) {
 	//   }
 	// });
 	// create_calendar_event(auth);
+
 	// Load client secrets from a local file.
-	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-	  if (err) {
-	    console.log('Error loading client secret file: ' + err);
-	    return;
-	  }
-	  // Authorize a client with the loaded credentials, then call the
-	  // Google Calendar API.
-	  authorize(JSON.parse(content), create_calendar_event);
-	});
+	//TODO
+	// fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	//   if (err) {
+	//     console.log('Error loading client secret file: ' + err);
+	//     return;
+	//   }
+	//   // Authorize a client with the loaded credentials, then call the
+	//   // Google Calendar API.
+	//   authorize(JSON.parse(content), create_calendar_event);
+	// });
 
 	/*******************
 	 * create campaign *
-	 *******************/
-	 /*
+	 *******************/ 
 	var options = { method: "POST",
 					  url: "https://us10.api.mailchimp.com/3.0/campaigns/",
 					  headers: 
@@ -142,7 +143,7 @@ app.post('/event', function(request, response) {
 	  	//edit email
 		edit_email(campaign_id, info, mom, insert_button)
 	});
-	*/
+	
     response.send(output);
 });
 
@@ -193,31 +194,31 @@ function send_email(campaign_id){
 }
 
 function create_calendar_event(auth){
-	var event_1 = {
-	  'summary': info[0].trim(),
-  	  'location': info[1].trim(),
-	  'start': {
-	    'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
-	  },
-	  'end': {
-	    'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
-	    'timeZone': 'America/Chicago',
-	  },
-	};
 	// var event_1 = {
-	//   'summary': 'Google I/O 2015',
-	//   'location': '800 Howard St., San Francisco, CA 94103',
-	//   'description': 'A chance to hear more about Google\'s developer products.',
+	//   'summary': info[0].trim(),
+ //  	  'location': info[1].trim(),
 	//   'start': {
-	//     'dateTime': '2015-05-28T09:00:00-07:00',
-	//     'timeZone': 'America/Los_Angeles',
+	//     'dateTime': mom.format("YYYY-MM-DDTHH:mm:ssZ"),
+	//     'timeZone': 'America/Chicago',
 	//   },
 	//   'end': {
-	//     'dateTime': '2015-05-28T17:00:00-07:00',
-	//     'timeZone': 'America/Los_Angeles',
-	//   }
+	//     'dateTime': mom.add(1, "hours").format("YYYY-MM-DDTHH:mm:ssZ"),
+	//     'timeZone': 'America/Chicago',
+	//   },
 	// };
+	var event_1 = {
+	  'summary': 'Google I/O 2015',
+	  'location': '800 Howard St., San Francisco, CA 94103',
+	  'description': 'A chance to hear more about Google\'s developer products.',
+	  'start': {
+	    'dateTime': '2015-05-28T09:00:00-07:00',
+	    'timeZone': 'America/Los_Angeles',
+	  },
+	  'end': {
+	    'dateTime': '2015-05-28T17:00:00-07:00',
+	    'timeZone': 'America/Los_Angeles',
+	  }
+	};
 
 
 	var cal = google.calendar('v3');
