@@ -1,6 +1,6 @@
 ##Eventer - Slack slash commands for event producers
 
-Made for our student organization, [Transcend](transcend.engineering "Transcend"), to help with event coordination/production.
+Made for our student organization, [Transcend](http://transcend.engineering "Transcend"), to help with event coordination/production.
 
 Utilize Slack slash commands to create an event. Type one line into the Slack input box and create a Mailchimp campaign, embed event information in the email, and optionally send the campaign. 
 
