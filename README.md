@@ -14,8 +14,8 @@ Utilize Slack slash commands to create an event. Type one line into the Slack in
 ###Implementation
 Utilizes the following APIs
 
-* ![Slash Commands](https://github.com/mfix22/event_bot/img/slack_50.png "Slack Slash Commands") Slash commands by [Slack](slack.com "Slack")
-* ![Google Calendar API](https://github.com/mfix22/event_bot/img/calendar_50.png "Google Calendar API") Google Calendar API
+* ![Slash Commands](https://github.com/mfix22/event_bot/tree/master/img/slack_50.png "Slack Slash Commands") Slash commands by [Slack](slack.com "Slack")
+* ![Google Calendar API](httphttps://github.com/mfix22/event_bot/tree/master/img/calendar_50.png "Google Calendar API") Google Calendar API
 __Future__
 + Google Maps integration
 + MapBox integration for better aesthetics in email
