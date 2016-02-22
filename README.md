@@ -23,4 +23,5 @@ Utilizes the following APIs
 
 
 
-_Made with :coffee: in 24 hours at [HackIllinois](https://www.hackillinois.org/)_
+
+					_Made with :coffee: in 24 hours at [HackIllinois](https://www.hackillinois.org/)_
