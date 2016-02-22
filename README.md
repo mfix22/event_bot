@@ -2,7 +2,7 @@
 
 Made for our student organization, [Transcend](http://transcend.engineering "Transcend"), to help with event coordination/production.
 
-Utilize Slack slash commands to create an event. Type one line into the Slack input box and create a Mailchimp campaign, embed event information in the email, and optionally send the campaign. 
+Utilize Slack slash commands to create an event. Type one line into the Slack input box and create a [MailcChimp](http://mailchimp.com/) campaign, embed event information in the email, and optionally send the campaign. 
 
 ###Usage
 ```
