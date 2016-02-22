@@ -16,6 +16,7 @@ Utilizes the following APIs
 
 * ![Slash Commands](https://github.com/mfix22/event_bot/raw/master/img/slack_50.png "Slack Slash Commands") Slash commands by [Slack](slack.com "Slack")
 * ![Google Calendar API](https://github.com/mfix22/event_bot/raw/master/img/calendar_50.png "Google Calendar API") Google Calendar API
-__Future__
+
+#####Future
 + Google Maps integration
 + MapBox integration for better aesthetics in email
