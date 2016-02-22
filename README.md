@@ -21,4 +21,6 @@ Utilizes the following APIs
 + [Google Maps](https://developers.google.com/maps/) integration
 + [MapBox](https://www.mapbox.com/developers/) integration for better aesthetics in email
 
-_Made in 24 hours at [HackIllinois](https://www.hackillinois.org/)_
+
+
+_Made with :coffee: in 24 hours at [HackIllinois](https://www.hackillinois.org/)_
