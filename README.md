@@ -1,1 +1,21 @@
-Eventer - Slack commands to event production
+##Eventer - Slack slash commands for event producers
+
+Made for out student organization, [Transcend](transcend.engineering "Transcend"), to help with event coordination/production.
+
+Utilize Slack slash commands to create an event. Type one line into the Slack input box and create a Mailchimp campaign, embed event information in the email, and optionally send the campaign. 
+
+###Usage
+```bash
+/event [title], [location], [date and time], [link], ['send']
+```
+
+
+
+###Implementation
+Utilizes the following APIs
+
++![Slash Commands](https://github.com/mfix22/event_bot/slack_50.png "Slack Slash Commands") Slash commands by [Slack](slack.com "Slack")
++![Google Calendar API](https://github.com/mfix22/event_bot/calendar_50.png "Google Calendar API") Google Calendar API
+__Future__
++ Google Maps integration
++ MapBox integration for better aesthetics in email
