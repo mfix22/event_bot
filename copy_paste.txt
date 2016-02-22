@@ -1,8 +1,0 @@
-https://us10.api.mailchimp.com/3.0/campaigns/de87cbb73a/content
-<p>The HTML to use for the saved campaign</p>
-d24fd94ced72a0bf09d0eb45f00a18da-us10
-/event Transcend Madison, Union South, 3/11/16, 9:00, transcend.engineering
-/event Officer Meeting, 1606 ECB, 2/22/16, 9:00
-
-
-4/SMyOiglDfErRmbKddYN3u8dMjmd6lJbA_8DiVoVzKlE
