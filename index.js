@@ -46,29 +46,28 @@ app.post('/event', function(request, response) {
 	if (info.length >= 3){
 		output += ("What: *" + info[0].trim() + "*\n");	//what
 		output += ("Where: *" + info[1].trim() + "*\n")	//where
-		output += ("When: *" + info[2].trim() + "*")		//date
-		date_info += (info[2].trim() + " ");
+		output += ("When: *" + info[2].trim() + "*")	//date
+		date_info += (info[2].trim());
+	}
+	else{
+		response.send('You must provide a [title], [location], and [date]');
 	}
 	if (info.length >= 4){
-		var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-  			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-  			'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-  			'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-  			'(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-  			'(\\#[-a-z\\d_]*)?$','i'); // fragment locater
- 		if(!pattern.test(info[3])) {
-    		output += (" *" + info[3].trim() + "*")
-    		date_info += info[3].trim();
+		// var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+  // 			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+  // 			'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+  // 			'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+  // 			'(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+  // 			'(\\#[-a-z\\d_]*)?$','i'); // fragment locater
+ 	// 	// if(!pattern.test(info[3])) {
+    		// output += (" *" + info[3].trim() + "*")
+    		// date_info += info[3].trim();
   		}
-  		else{
-  			insert_button = '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #2BAADF;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                    <tbody>\n                        <tr>\n                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                                <a class="mcnButton " title="SIGN UP HERE" href="http://' + info[3].trim() + '" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">SIGN UP HERE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n'
-  			output += ("\nRSVP: <http://" + info[3].trim() + "|LINK>");
-  		}
+  		// else{
+		insert_button = '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #2BAADF;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                    <tbody>\n                        <tr>\n                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                                <a class="mcnButton " title="SIGN UP HERE" href="http://' + info[3].trim() + '" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">SIGN UP HERE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n'
+		output += ("\nRSVP: <http://" + info[3].trim() + "|LINK>");
+  		// }
 					//time
-	}
-	if (info.length >= 5){
-		insert_button = '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #2BAADF;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                    <tbody>\n                        <tr>\n                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 16px;padding: 15px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">\n                                <a class="mcnButton " title="SIGN UP HERE" href="http://' + info[4].trim() + '" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">SIGN UP HERE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n'
-		output += ("\nRSVP: <http://" + info[4].trim() + "|LINK>");
 	}
 	
 	mom =  moment(date_info, 'D/MM/YY h:mma'); 
