@@ -51,6 +51,7 @@ app.post('/event', function(request, response) {
 	}
 	else{
 		response.send('You must provide a [title], [location], and [date]');
+		return;
 	}
 	if (info.length >= 4){
 		// var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
